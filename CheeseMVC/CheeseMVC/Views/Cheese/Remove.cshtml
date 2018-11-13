@@ -1,0 +1,23 @@
+﻿
+<h1>@ViewBag.Title</h1>
+
+@if (ViewBag.Cheeses.Count == 0)
+    {
+<p>No cheeses yet!</p>
+    }
+
+<form method="post">
+    @foreach(var cheese in ViewBag.Cheeses)
+        {   
+            
+             <input type="checkbox" name="cheeseIds" id="@cheese.CheeseId" value="@cheese.CheeseId" />
+             <label for="@cheese.CheeseId">@cheese.Name</label>
+             <br />
+        }
+              
+             <input type="submit" value="Remove Selected Cheese(s)" />     
+        
+</form>
+
+
+

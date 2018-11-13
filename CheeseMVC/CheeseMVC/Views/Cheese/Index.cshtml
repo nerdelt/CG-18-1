@@ -1,0 +1,33 @@
+﻿@{
+
+}
+<h1>My Cheeses</h1>
+
+@if (ViewBag.Cheeses.Count == 0)
+{
+<p>No cheeses yet!</p>
+}
+
+
+@if (ViewBag.Cheeses.Count > 0)
+    {
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th> </th>
+    </tr>
+    @foreach (var cheese in ViewBag.Cheeses)
+    {
+    <tr>
+        <td>@cheese.Name</td>
+        <td>@cheese.Description</td>
+        <td><a asp-controller="Cheese" asp-action="Edit" asp-route-cheeseId="@cheese.CheeseId">Edit</a></td>
+    </tr>
+    }
+</table>
+
+<p><a asp-controller="Cheese" asp-action="Remove">Remove Cheeses</a></p>
+}
+
+<p><a asp-controller="Cheese" asp-action="Add">Add Cheese</a></p>
